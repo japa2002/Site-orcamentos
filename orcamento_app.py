@@ -49,8 +49,8 @@ st.session_state.backups = load_backups()
 
 # Sidebar pra dados do cliente e empresa
 st.sidebar.header("Dados da Empresa (Edite uma vez)")
-empresa_nome = st.sidebar.text_input("Nome da Marcenaria", value="Marcenaria do Seu Pai")
-empresa_endereco = st.sidebar.text_input("Endereço da Empresa", value="Rua Exemplo, 123 - SP")
+empresa_nome = st.sidebar.text_input("Nome da Marcenaria", value="AW Marcenaria Móveis Sob Medida")
+empresa_endereco = st.sidebar.text_input("Endereço da Empresa", value="Rua Brusque, 880, Bairro Glória - Blumenau - SC")
 
 st.sidebar.header("Dados do Cliente")
 cliente_nome = st.sidebar.text_input("Nome do Cliente", value=st.session_state.cliente_nome, key="cliente_input")
