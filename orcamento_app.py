@@ -439,29 +439,6 @@ observacao = st.text_area("Observações", height=100, help="Ex: Entrega inclui 
 itens_inclusos = st.text_area("Itens Inclusos", height=100, help="Ex: Manutenção básica", value=st.session_state.get('itens_inclusos_temp', ''))
 itens_nao_inclusos = st.text_area("Itens Não Inclusos", height=100, help="Ex: Transporte", value=st.session_state.get('itens_nao_inclusos_temp', ''))
 
-if st.button("💾 Salvar Orçamento como Backup", use_container_width=True):
-    if cliente_nome and st.session_state.itens:
-        backup_key = f"{cliente_nome}_{datetime.now().strftime('%Y%m%d_%H%M')}"
-        backup_data = {
-            'itens': st.session_state.itens.copy(),
-            'cliente_nome': cliente_nome,
-            'cliente_telefone': cliente_telefone,
-            'cliente_endereco': cliente_endereco,
-            'projetos_nome': projetos_nome,
-            'prazo': prazo,
-            'pagamento': pagamento,
-            'orcamento_valido_por': orcamento_valido_por,
-            'observacao': observacao,
-            'itens_inclusos': itens_inclusos,
-            'itens_nao_inclusos': itens_nao_inclusos,
-            'total': total,
-            'desconto': desconto,
-            'valor_final': valor_final
-        }
-        save_backup(backup_key, backup_data)
-        st.session_state.backups = load_backups()
-        st.success(f"✅ Orçamento salvo para {cliente_nome}!")
-
 if st.button("📄 Gerar e Baixar PDF", use_container_width=True):
     buffer = BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=letter, topMargin=36)
